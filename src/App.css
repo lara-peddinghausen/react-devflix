@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #002537;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+button, a {
+  font: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 5%;
+  background: #0D0D0E;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: #80FA54;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.areaLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoDot {
+  color: #80FA54;
+  font-size: 20px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #80FA54;
+}
+
+.hero {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.95),
+      rgba(1, 18, 94, 0.2)
+    ),
+    url("./assets/banner.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 400px;
+  padding: 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  margin-bottom: 12px;
+  color: #80FA54;
+}
+
+.hero h3 {
+  margin-bottom: 35px;
+}
+
+.hero p {
+  color: #ccc;
+}
+
+.hero-button {
+  background: #46882d;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.course-section {
+  padding: 30px 5%;
+  scroll-margin-top: 110px;
+}
+
+.course-section h2 {
+  color: #fff;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.course-card {
+  position: relative;
+  background-color: #141719;
+  border: 1px solid #2A3032;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.04);
+  border-color: #80FA54;
+}
+
+.course-content {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.course-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.course-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 0;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.course-info {
+  padding: 15px;
+}
+
+.course-info h3 {
+  margin: 0 0 10px;
+}
+
+.course-info p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #141719;
+  color: #D5FC64;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #181818;
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.video-container {
+  aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 60px 5%;
+  }
+}
+
+.areaBusca {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid #555;
+  border-radius: 8px;
+}
+
+.iconeBusca {
+  color: #D5FC64;
+  font-size: 20px;
+}
+
+.areaBusca input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  width: 160px;
+}
+
+.areaBusca input::placeholder {
+  color: #999;
+}
+
