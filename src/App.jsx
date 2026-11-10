@@ -3,12 +3,13 @@ import Header from "./components/Header";
 import CourseSection from "./components/CourseSection";
 import VideoPlayer from "./components/VideoPlayer";
 import { categories } from "./data/courses";
-
+import FavoritesSection from "./components/FavoritesSection";
 import "./App.css";
 
 function App() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [search, setSearch] = useState("");
+  const [favorites, setFavorites] = useState([]);
 
   function handleSelectCourse(course) {
     setSelectedCourse(course);
@@ -16,6 +17,14 @@ function App() {
 
   function handleCloseVideo() {
     setSelectedCourse(null);
+  }
+
+  function handleToggleFavorite(courseId) {  // Adiciona ou remove cursos dos favoritos
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(courseId)
+        ? prevFavorites.filter((id) => id !== courseId)
+        : [...prevFavorites, courseId]
+    );
   }
 
   // Filtra os cursos dentro de cada categoria
@@ -28,8 +37,6 @@ function App() {
     }))
     .filter((category) => category.courses.length > 0);  // remove categorias que ficaram sem cursos.
 
-  const [favorites, setFavorites] = useState([]);
-
   function handleToggleFavorite(courseId) {
     setFavorites((prevFavorites) =>
       prevFavorites.includes(courseId)
@@ -37,6 +44,16 @@ function App() {
         : [...prevFavorites, courseId]
     );
   }
+
+  const allCourses = categories.flatMap(
+    (category) => category.courses
+  );
+
+  const favoriteCourses = allCourses.filter(   // Seleciona os cursos favoritos, evitando duplicações
+    (course, index, array) =>
+      favorites.includes(course.id) &&
+      array.findIndex((item) => item.id === course.id) === index
+  );
 
   return (
     <>
@@ -53,6 +70,14 @@ function App() {
           </a>
         </section>
 
+        {/* Seção de favoritos */}
+        <FavoritesSection
+          courses={favoriteCourses}
+          onSelect={handleSelectCourse}
+          onToggleFavorite={handleToggleFavorite}
+        />
+
+        {/* Seções de cursos */}
         {filteredCategories.length > 0 ? (
           filteredCategories.map((category) => (
             <CourseSection  // recebe somente os cursos encontrados.

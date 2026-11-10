@@ -114,10 +114,29 @@ nav a:hover {
 }
 
 .course-section h2 {
-  color: #fff;
-  text-align: left;
+  color: #80FA54;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #001722;
+  padding: 20px ;
+}
+
+.course-favorite {
+  background-color: #001722;
+  padding: 20px ;
   margin-bottom: 20px;
 }
+
+.course-favorite h2 {
+  color: #80FA54;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.course-favorite p {
+  color: #9DA5A7;
+}
+
 .course-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
