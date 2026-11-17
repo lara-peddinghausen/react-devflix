@@ -2,11 +2,11 @@
 
 ## DevFlix
 
-Aplicação web de cursos e conteúdos educativos de tecnologia em uma interface inspirada em plataformas de streaming. O projeto possui um frontend em React e uma API em NestJS, com persistência de categorias em PostgreSQL.
+Aplicação web de cursos e conteúdos educativos de tecnologia em uma interface inspirada em plataformas de streaming. O projeto possui um frontend em React e uma API em NestJS, com persistência de categorias, cursos e aulas em PostgreSQL.
 
 ## 1. Descrição
 
-O projeto implementa uma aplicação web para disponibilizar cursos de tecnologia em uma plataforma inspirada em serviços de streaming com organização por categorias. A interface permite buscar cursos, visualizar descrições, salvar cursos como favoritos durante a sessão e reproduzir vídeos. Atualmente, os cursos exibidos pela interface são definidos localmente em `frontend/src/data/courses.js`. A API disponibiliza categorias armazenadas no PostgreSQL.
+O projeto implementa uma aplicação web para disponibilizar cursos de tecnologia em uma plataforma inspirada em serviços de streaming com organização por categorias. A interface permite buscar cursos, visualizar descrições, salvar cursos como favoritos durante a sessão e reproduzir vídeos. Atualmente, os cursos exibidos pela interface são definidos localmente em `frontend/src/data/courses.js`. A API disponibiliza categorias e consulta cursos com suas respectivas aulas, armazenados no PostgreSQL.
 
 ## 2. Funcionalidades
 
@@ -17,7 +17,8 @@ O projeto implementa uma aplicação web para disponibilizar cursos de tecnologi
 - Navegação por seções temáticas;
 - Layout responsivo e visual inspirado em plataformas de streaming;
 - Organização das informações em cards com descrição e contexto do conteúdo;
-- API para consulta de categorias armazenadas no banco de dados.
+- API para consulta de categorias;
+- API para consulta de cursos e aulas cadastradas no banco de dados.
 
 ## 3. Tecnologias Utilizadas
 
@@ -46,6 +47,7 @@ react-devflix/
 │   │   └── schema.prisma
 │   ├── src/
 │   │   ├── categories/
+│   │   ├── courses/
 │   │   ├── health/
 │   │   ├── prisma/
 │   │   ├── app.module.ts
@@ -75,6 +77,7 @@ Descrição dos principais diretórios:
 - `frontend/src/App.jsx` — estrutura principal da aplicação e controle de estado;
 - `frontend/src/assets/` — arquivos visuais da aplicação;
 - `backend/src/categories/` — endpoint e serviço de consulta de categorias;
+- `backend/src/courses/` — endpoints de listagem e consulta de cursos com suas aulas;
 - `backend/src/health/` — endpoint de verificação da API;
 - `backend/src/prisma/` — integração do Prisma com o banco de dados;
 - `backend/prisma/` — schema e migrations do banco;
@@ -145,7 +148,7 @@ Em um terminal, na pasta `backend`:
 npm run start:dev
 ```
 
-A API ficará disponível em `http://localhost:3000`. Os endpoints implementados incluem `GET /health` e `GET /categories`.
+A API ficará disponível em `http://localhost:3000`. Os endpoints implementados incluem `GET /health`, `GET /categories`, `GET /courses` e `GET /courses/:id`.
 
 ### Frontend
 
