@@ -7,8 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
+node_modules/
+dist/
 dist-ssr
 *.local
 
@@ -22,3 +22,27 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Dependências
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# Prisma Client gerado
+**/src/generated/prisma/
+
+# Logs
+*.log
+
+# Arquivos auxiliares de agentes
+**/.agents/
+**/.claude/
+**/.windsurf/
+**/AGENTS.md
+**/skills-lock.json
